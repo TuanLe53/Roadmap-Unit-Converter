@@ -25,5 +25,9 @@ func main() {
 		c.HTML(http.StatusOK, "temperature.html", nil)
 	})
 
+	r.GET("/result", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "result.html", nil)
+	})
+
 	log.Fatal(r.Run())
 }
