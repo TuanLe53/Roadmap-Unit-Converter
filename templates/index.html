@@ -10,14 +10,26 @@
 <body>
     <h1 class="text-5xl text-center">Unit Converter</h1>
 
-    <div>
-        <button hx-get="/converter/length" hx-target="#container">Length</button>
-        <button hx-get="/converter/weight" hx-target="#container">Weight</button>
-        <button hx-get="/converter/temperature" hx-target="#container">Temperature</button>
+    <div class="w-11/12 md:w-2/5 mx-auto flex gap-5">
+        <button class="converter-buttons border-x-2 border-t-2 border-transparent px-1" hx-get="/converter/length" hx-target="#container">Length</button>
+        <button class="converter-buttons border-x-2 border-t-2 border-transparent px-1" hx-get="/converter/weight" hx-target="#container">Weight</button>
+        <button class="converter-buttons border-x-2 border-t-2 border-transparent px-1" hx-get="/converter/temperature" hx-target="#container">Temperature</button>
     </div>
 
-    <div id="container">
+    <div id="container" class="bg-slate-300 w-11/12 md:w-2/5 mx-auto">
         
     </div>
+
+    <script>
+        const active_class = ["rounded-t", "bg-slate-300"];
+        const buttons = document.querySelectorAll(".converter-buttons");
+        buttons.forEach((button) =>{
+            button.addEventListener("click", () =>{
+                buttons.forEach((b) => b.classList.remove(...active_class))
+                button.classList.add(...active_class)
+            })
+        });
+
+    </script>
 </body>
 </html>
