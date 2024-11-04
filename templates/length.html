@@ -1,0 +1,38 @@
+<form hx-post="/convert/length" hx-target="#container" class="p-2">
+    <label>Enter the length to convert</label><br />
+    <input name="source_value" id="source_value" required/><br />
+
+    <label>Unit to convert from: </label>
+    <select name="source_unit" id="source_unit" required>
+        <option value="">None</option>
+        <option value="km">km</option>
+        <option value="hm">hm</option>
+        <option value="dam">dam</option>
+        <option value="m">m</option>
+        <option value="dm">dm</option>
+        <option value="cm">cm</option>
+        <option value="mm">mm</option>
+        <option value="foot">ft</option>
+        <option value="mile">mile</option>
+        <option value="yard">yd</option>
+        <option value="inch">in</option>
+    </select><br />
+
+    <label>Unit to convert to: </label>
+    <select name="target_unit" id="target_unit" required>
+        <option value="">None</option>
+        <option value="km">km</option>
+        <option value="hm">hm</option>
+        <option value="dam">dam</option>
+        <option value="m">m</option>
+        <option value="dm">dm</option>
+        <option value="cm">cm</option>
+        <option value="mm">mm</option>
+        <option value="foot">ft</option>
+        <option value="mile">mile</option>
+        <option value="yard">yd</option>
+        <option value="inch">in</option>
+    </select><br />
+
+    <button type="submit">Convert</button>
+</form>
