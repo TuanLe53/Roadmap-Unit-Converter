@@ -1,0 +1,10 @@
+<div class="p-2">
+    <h2>The result of your calculation</h2>
+    <p>{{.source_value}} {{.source_unit}} = {{.target_value}} {{.target_unit}}</p>
+    <button
+        hx-get="/converter/{{.conversion_type}}"
+        hx-target="#container"
+    >
+       Reset
+    </button>
+</div>
