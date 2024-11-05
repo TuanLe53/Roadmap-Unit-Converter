@@ -80,5 +80,31 @@ func main() {
 		})
 	})
 
+	r.POST("/convert/temperature", func(c *gin.Context) {
+		source_value := c.PostForm("source_value")
+		source_unit := c.PostForm("source_unit")
+		target_unit := c.PostForm("target_unit")
+
+		value, err := strconv.ParseFloat(source_value, 64)
+		if err != nil {
+			fmt.Println("Error converting string to float64:", err)
+			return
+		}
+
+		target_value, err := convertTemperature(value, source_unit, target_unit)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+
+		c.HTML(http.StatusOK, "result.html", gin.H{
+			"conversion_type": "temperature",
+			"source_unit":     source_unit,
+			"target_unit":     target_unit,
+			"source_value":    source_value,
+			"target_value":    target_value,
+		})
+	})
+
 	log.Fatal(r.Run())
 }
