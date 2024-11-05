@@ -34,3 +34,29 @@ func convertLength(source_value float64, source_unit, target_unit string) (float
 
 	return convertedValue, nil
 }
+
+func convertWeight(source_value float64, source_unit, target_unit string) (float64, error) {
+	unitsInGrams := map[string]float64{
+		"ton":   1_000_000, // metric ton (1 ton = 1,000,000 grams)
+		"kg":    1000,
+		"gram":  1,
+		"mg":    0.001,
+		"pound": 453.592,
+		"ounce": 28.3495,
+	}
+
+	// Check if the units are supported
+	fromFactor, ok1 := unitsInGrams[source_unit]
+	toFactor, ok2 := unitsInGrams[target_unit]
+	if !ok1 || !ok2 {
+		return 0, errors.New("unsupported unit")
+	}
+
+	// Convert value to grams
+	valueInGrams := source_value * fromFactor
+
+	// Convert from grams to the target unit
+	convertedValue := valueInGrams / toFactor
+
+	return convertedValue, nil
+}
