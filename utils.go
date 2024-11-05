@@ -5,6 +5,10 @@ import (
 )
 
 func convertLength(source_value float64, source_unit, target_unit string) (float64, error) {
+	if source_unit == target_unit {
+		return source_value, nil // No conversion needed if units are the same
+	}
+
 	unitsInMeters := map[string]float64{
 		"km":   1000,
 		"hm":   100,
@@ -36,6 +40,10 @@ func convertLength(source_value float64, source_unit, target_unit string) (float
 }
 
 func convertWeight(source_value float64, source_unit, target_unit string) (float64, error) {
+	if source_unit == target_unit {
+		return source_value, nil // No conversion needed if units are the same
+	}
+
 	unitsInGrams := map[string]float64{
 		"ton":   1_000_000, // metric ton (1 ton = 1,000,000 grams)
 		"kg":    1000,
