@@ -68,3 +68,42 @@ func convertWeight(source_value float64, source_unit, target_unit string) (float
 
 	return convertedValue, nil
 }
+
+func convertTemperature(source_value float64, source_unit, target_unit string) (float64, error) {
+	if source_unit == target_unit {
+		return source_value, nil // No conversion needed if units are the same
+	}
+
+	var result float64
+
+	switch source_unit {
+	case "Celsius":
+		if target_unit == "Fahrenheit" {
+			result = (source_value * 9 / 5) + 32
+		} else if target_unit == "Kelvin" {
+			result = source_value + 273.15
+		} else {
+			return 0, errors.New("unsupported target unit")
+		}
+	case "Fahrenheit":
+		if target_unit == "Celsius" {
+			result = (source_value - 32) * 5 / 9
+		} else if target_unit == "Kelvin" {
+			result = (source_value-32)*5/9 + 273.15
+		} else {
+			return 0, errors.New("unsupported target unit")
+		}
+	case "Kelvin":
+		if target_unit == "Celsius" {
+			result = source_value - 273.15
+		} else if target_unit == "Fahrenheit" {
+			result = (source_value-273.15)*9/5 + 32
+		} else {
+			return 0, errors.New("unsupported target unit")
+		}
+	default:
+		return 0, errors.New("unsupported source unit")
+	}
+
+	return result, nil
+}
