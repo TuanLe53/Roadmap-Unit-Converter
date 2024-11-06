@@ -1,8 +1,8 @@
 <form hx-post="/convert/temperature" hx-target="#container" class="p-2">
-    <label>Enter the weight to convert</label><br />
+    <label for="source_value">Enter the weight to convert</label><br />
     <input name="source_value" id="source_value" required/><br />
 
-    <label>Unit to convert from: </label>
+    <label for="source_unit">Unit to convert from: </label>
     <select name="source_unit" id="source_unit" required>
         <option value="">None</option>
         <option value="Celsius">Celsius</option>
@@ -10,7 +10,7 @@
         <option value="Kelvin">Kelvin</option>
     </select><br />
 
-    <label>Unit to convert to: </label>
+    <label for="target_unit">Unit to convert to: </label>
     <select name="target_unit" id="target_unit" required>
         <option value="">None</option>
         <option value="Celsius">Celsius</option>
