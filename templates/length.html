@@ -1,9 +1,9 @@
 <form hx-post="/convert/length" hx-target="#container" class="p-2">
-    <label for="source_value">Enter the length to convert</label><br />
-    <input name="source_value" id="source_value" required/><br />
+    <label for="source_value">Enter the length to convert:</label><br />
+    <input name="source_value" id="source_value" class="mb-2" required/><br />
 
     <label for="source_unit">Unit to convert from: </label>
-    <select name="source_unit" id="source_unit" required>
+    <select name="source_unit" id="source_unit" class="mb-2" required>
         <option value="">None</option>
         <option value="km">km</option>
         <option value="hm">hm</option>
@@ -19,7 +19,7 @@
     </select><br />
 
     <label for="target_unit">Unit to convert to: </label>
-    <select name="target_unit" id="target_unit" required>
+    <select name="target_unit" id="target_unit" class="mb-2" required>
         <option value="">None</option>
         <option value="km">km</option>
         <option value="hm">hm</option>
