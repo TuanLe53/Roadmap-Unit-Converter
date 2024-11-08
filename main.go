@@ -44,13 +44,13 @@ func main() {
 			fmt.Println("Error:", err)
 			return
 		}
-
+		formatted_target_value := formatReadableValue(target_value)
 		c.HTML(http.StatusOK, "result.html", gin.H{
 			"conversion_type": "length",
 			"source_unit":     source_unit,
 			"target_unit":     target_unit,
 			"source_value":    source_value,
-			"target_value":    target_value,
+			"target_value":    formatted_target_value,
 		})
 	})
 
@@ -70,13 +70,13 @@ func main() {
 			fmt.Println("Error:", err)
 			return
 		}
-
+		formatted_target_value := formatReadableValue(target_value)
 		c.HTML(http.StatusOK, "result.html", gin.H{
 			"conversion_type": "weight",
 			"source_unit":     source_unit,
 			"target_unit":     target_unit,
 			"source_value":    source_value,
-			"target_value":    target_value,
+			"target_value":    formatted_target_value,
 		})
 	})
 
@@ -96,13 +96,13 @@ func main() {
 			fmt.Println("Error:", err)
 			return
 		}
-
+		formatted_target_value := formatReadableValue(target_value)
 		c.HTML(http.StatusOK, "result.html", gin.H{
 			"conversion_type": "temperature",
 			"source_unit":     source_unit,
 			"target_unit":     target_unit,
 			"source_value":    source_value,
-			"target_value":    target_value,
+			"target_value":    formatted_target_value,
 		})
 	})
 
