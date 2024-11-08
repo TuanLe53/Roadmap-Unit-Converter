@@ -2,6 +2,8 @@ package main
 
 import (
 	"errors"
+	"fmt"
+	"math"
 )
 
 func convertLength(source_value float64, source_unit, target_unit string) (float64, error) {
@@ -106,4 +108,14 @@ func convertTemperature(source_value float64, source_unit, target_unit string) (
 	}
 
 	return result, nil
+}
+
+func formatReadableValue(value float64) string {
+	if math.Abs(value) >= 1000 {
+		return fmt.Sprintf("%.0f", value) // No decimals, with commas for thousands
+	} else if math.Abs(value) >= 1 {
+		return fmt.Sprintf("%.2f", value) // Two decimal places for values above 1
+	} else {
+		return fmt.Sprintf("%.4f", value) // Four decimal places for small values
+	}
 }
