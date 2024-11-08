@@ -38,3 +38,9 @@ go build
 ```
 
 Access the Application: Open your web browser and go to http://localhost:8080 to use the application.
+
+## Screenshots
+<p float="left">
+    <img src="screenshots/image1.png" width="45%" />
+    <img src="screenshots/image2.png" width="45%" />
+</p>
